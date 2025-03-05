@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Srikanth</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo flex">
+        <span>Srikanth</span>
+      </div>
+      <div class="menu-toggle">&#9776;</div>
+      <div class="main-menu">
+        <div class="menu-btn">
+          <div class="menu">
+            <ul>
+              <a href="#"><li>Resume Builder App</li></a>
+              <a href="#"><li>Resume Examples</li></a>
+              <a href="./resumeTemplate.html"><li>Resume Templates</li></a>
+              <a href="#"><li>Cover Letter Builder</li></a>
+            </ul>
+          </div>
+          <div class="nav-btn">
+            <div class="btn-cover">
+              <a href="./coreResumeBuilder.html"><span>Build Resume</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="animation">
+        <img src="./res.webp" alt="resume" />
+      </div>
+      <div class="main-container">
+        <div class="main-content">
+          <div class="main-content-title">
+            The Best Online <br />Resume Builder
+          </div>
+          <div class="main-content-subtext">
+            Easily create a resume for any job using our best-in-class resume
+            builder platform.
+          </div>
+          <div class="main-content-btn">
+            <div class="mcb1">
+              <a href="./coreResumeBuilder.html"
+                ><span>Create my Resume Now</span></a
+              >
+            </div>
+            <div class="mcb2">Import Resume</div>
+          </div>
+        </div>
+        <div class="main-stats">
+          <div class="stats-percentage">
+            <div class="stats-content">
+              <div class="stats">^</div>
+              <div class="stats-per">38%</div>
+            </div>
+            <div class="more-inter">more interviews</div>
+          </div>
+          <div class="stats-percentage">
+            <div class="stats-content">
+              <div class="stats-arrow">^</div>
+              <div class="stats-per">23%</div>
+            </div>
+            <div class="more-inter">more likely to get offer</div>
+          </div>
+        </div>
+        <div class="logo-list-wrapper">
+          <div class="brand-title">Subscribers have been hired by: *</div>
+          <div class="logo-list">
+            <img src="./black-logo-1.svg" alt="" />
+            <img src="./black-logo-1.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document
+        .querySelector(".menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".main-menu").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>

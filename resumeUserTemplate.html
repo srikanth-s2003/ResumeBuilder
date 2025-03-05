@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Resume</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .resume-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Header section */
+      .header {
+        padding: 30px;
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      .name {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 15px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .contact-item {
+        margin-right: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* Main content */
+      .content {
+        padding: 30px;
+      }
+
+      .section {
+        margin-bottom: 25px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+      }
+
+      /* Summary section */
+      .summary {
+        margin-bottom: 25px;
+      }
+
+      /* Experience items */
+      .experience-item,
+      .education-item {
+        margin-bottom: 20px;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+
+      .item-title {
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .item-subtitle {
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      .date {
+        color: #666;
+      }
+
+      .item-description {
+        margin-top: 5px;
+      }
+
+      /* Skills section */
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+      }
+
+      .skill-item {
+        background-color: #f0f0f0;
+        padding: 5px 12px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        font-size: 14px;
+      }
+
+      /* Responsive design */
+      @media (max-width: 600px) {
+        .item-header {
+          flex-direction: column;
+        }
+
+        .date {
+          margin-top: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <div class="header">
+        <h1 class="name">John Doe</h1>
+        <div class="title">Software Engineer</div>
+        <div class="contact-info">
+          <div class="contact-item">📧 john.doe@example.com</div>
+          <div class="contact-item">📱 (123) 456-7890</div>
+          <div class="contact-item">🔗 linkedin.com/in/johndoe</div>
+          <div class="contact-item">🌐 johndoe.com</div>
+          <div class="contact-item">📍 San Francisco, CA</div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="summary section">
+          <h2 class="section-title">Professional Summary</h2>
+          <p>
+            Results-driven Software Engineer with 5+ years of experience in
+            developing high-performance applications. Proficient in front-end
+            and back-end development with expertise in JavaScript, React, and
+            Node.js. Passionate about writing clean, efficient code and
+            implementing best practices.
+          </p>
+        </div>
+
+        <div class="experience section">
+          <h2 class="section-title">Work Experience</h2>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Senior Software Engineer</div>
+                <div class="item-subtitle">Tech Solutions Inc.</div>
+              </div>
+              <div class="date">Jan 2022 - Present</div>
+            </div>
+            <ul class="item-description">
+              <li>
+                Led the development of a customer-facing web application that
+                increased user engagement by 35%
+              </li>
+              <li>
+                Mentored junior developers and conducted code reviews to ensure
+                quality and best practices
+              </li>
+              <li>
+                Implemented CI/CD pipelines that reduced deployment time by 40%
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Software Developer</div>
+                <div class="item-subtitle">Digital Innovations LLC</div>
+              </div>
+              <div class="date">Mar 2019 - Dec 2021</div>
+            </div>
+            <ul class="item-description">
+              <li>
+                Developed and maintained multiple web applications using React
+                and Node.js
+              </li>
+              <li>
+                Collaborated with UX designers to implement responsive designs
+              </li>
+              <li>
+                Optimized database queries that improved application performance
+                by 25%
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="education section">
+          <h2 class="section-title">Education</h2>
+
+          <div class="education-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">
+                  Master of Science in Computer Science
+                </div>
+                <div class="item-subtitle">University of Technology</div>
+              </div>
+              <div class="date">2017 - 2019</div>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">
+                  Bachelor of Science in Computer Science
+                </div>
+                <div class="item-subtitle">State University</div>
+              </div>
+              <div class="date">2013 - 2017</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills section">
+          <h2 class="section-title">Skills</h2>
+          <ul class="skills-list">
+            <li class="skill-item">JavaScript</li>
+            <li class="skill-item">TypeScript</li>
+            <li class="skill-item">React</li>
+            <li class="skill-item">Node.js</li>
+            <li class="skill-item">Express</li>
+            <li class="skill-item">HTML5</li>
+            <li class="skill-item">CSS3</li>
+            <li class="skill-item">SASS</li>
+            <li class="skill-item">MongoDB</li>
+            <li class="skill-item">PostgreSQL</li>
+            <li class="skill-item">Git</li>
+            <li class="skill-item">AWS</li>
+            <li class="skill-item">Docker</li>
+            <li class="skill-item">CI/CD</li>
+            <li class="skill-item">Agile/Scrum</li>
+            <li class="skill-item">RESTful APIs</li>
+          </ul>
+        </div>
+
+        <div class="projects section">
+          <h2 class="section-title">Projects</h2>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">E-commerce Platform</div>
+              </div>
+            </div>
+            <p class="item-description">
+              Developed a full-stack e-commerce solution with React, Node.js,
+              and MongoDB. Implemented features including user authentication,
+              product search, shopping cart, and payment processing.
+            </p>
+          </div>
+
+          <div class="experience-item">
+            <div class="item-header">
+              <div>
+                <div class="item-title">Task Management Application</div>
+              </div>
+            </div>
+            <p class="item-description">
+              Created a responsive task management web app with drag-and-drop
+              functionality using React and Redux. Integrated with a RESTful API
+              for data persistence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="./crbstyle.css" />
+    <link rel="stylesheet" href="./previewcss.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./rtstyle.css" />
+    <style>
+      /* Base Styles */
+
+      /* Header Styles */
+    </style>
+    <!-- Add jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo flex">
+        <a href="./index.html"><span>Srikanth</span></a>
+      </div>
+      <div class="menu-toggle">&#9776;</div>
+      <div class="main-menu">
+        <div class="menu-btn">
+          <div class="menu">
+            <ul>
+              <a href="#"><li>Resume Builder App</li></a>
+              <a href="#"><li>Resume Examples</li></a>
+              <a href="./resumeTemplate.html"><li>Resume Templates</li></a>
+              <a href="#"><li>Cover Letter Builder</li></a>
+            </ul>
+          </div>
+          <div class="nav-btn">
+            <div class="btn-cover">
+              <a href="#"><span>Build Resume</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="crb-container">
+      <div class="crb-sidebar">
+        <div class="crb-steps">
+          <h3>Steps:</h3>
+          <a href="#firstName"><p>1. Personal Details</p></a>
+          <a href="#schoolName"><p>2. Education</p></a>
+          <a href="#jobTitle"><p>3. Experience</p></a>
+          <a href="#skill1"><p>4. Skills</p></a>
+          <a href="#languageEnglish"><p>5. Languages</p></a>
+          <a href="#achievements"><p>6. Achievements</p></a>
+          <a href="#certification"><p>7. Certifications</p></a>
+          <a href="#projectTitle"><p>8. Projects</p></a>
+          <a href="#volunteerWork"><p>9. Volunteer Work</p></a>
+          <a href="#references"><p>10. References</p></a>
+        </div>
+      </div>
+      <div class="crb-main">
+        <div class="crb-user-form">
+          <div class="crb-title">
+            <h1>What's the best way for employers to contact you?</h1>
+            <p>* indicates a required field</p>
+          </div>
+          <div class="crb-details">
+            <form id="resumeBuilderForm" action="" method="post">
+              <!-- Personal Information Section -->
+              <div class="row1">
+                <div class="row11">
+                  <label for="firstName">FIRST NAME*</label><br />
+                  <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    class="fields"
+                    required
+                  />
+                </div>
+                <div class="row12">
+                  <label for="lastName">SURNAME*</label><br />
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    class="fields"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="city">CITY</label><br />
+                  <input type="text" name="city" id="city" class="fields" />
+                </div>
+                <div class="row120">
+                  <div class="row121">
+                    <label for="country">COUNTRY</label><br />
+                    <input
+                      type="text"
+                      name="country"
+                      id="country"
+                      class="country"
+                    />
+                  </div>
+                  <div class="row122">
+                    <label for="pincode">PINCODE</label><br />
+                    <input
+                      type="text"
+                      name="pincode"
+                      id="pincode"
+                      class="city"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="phone">PHONE</label><br />
+                  <input type="text" name="phone" id="phone" class="fields" />
+                </div>
+                <div class="row12">
+                  <label for="email">EMAIL*</label><br />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="fields"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="jobPosition">DESIRED JOB POSITION</label><br />
+                  <input
+                    type="text"
+                    name="jobPosition"
+                    id="jobPosition"
+                    class="fields"
+                    placeholder="Software Engineer"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="profileSummary">PROFESSIONAL SUMMARY</label><br />
+                  <textarea
+                    maxlength="200"
+                    name="profileSummary"
+                    id="profileSummary"
+                    class="fields"
+                    rows="4"
+                    cols="50"
+                    placeholder="A brief summary of your professional background and career goals"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="linkedin">LINKEDIN PROFILE</label><br />
+                  <input
+                    type="text"
+                    name="linkedin"
+                    id="linkedin"
+                    class="fields"
+                    placeholder="https://linkedin.com/in/username"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="website">PERSONAL WEBSITE/PORTFOLIO</label><br />
+                  <input
+                    type="text"
+                    name="website"
+                    id="website"
+                    class="fields"
+                    placeholder="https://yourwebsite.com"
+                  />
+                </div>
+              </div>
+
+              <!-- Education Section -->
+              <div class="crb-title">
+                <h1>Tell us about your education</h1>
+                <p>* indicates a required field</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="schoolName">SCHOOL/UNIVERSITY NAME*</label><br />
+                  <input
+                    type="text"
+                    name="schoolName"
+                    id="schoolName"
+                    class="fields"
+                    required
+                  />
+                </div>
+                <div class="row12">
+                  <label for="schoolLocation">SCHOOL LOCATION</label><br />
+                  <input
+                    type="text"
+                    name="schoolLocation"
+                    id="schoolLocation"
+                    class="fields"
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="degree">DEGREE*</label><br />
+                  <input
+                    type="text"
+                    name="degree"
+                    id="degree"
+                    class="fields"
+                    required
+                  />
+                </div>
+                <div class="row12">
+                  <label for="fieldOfStudy">FIELD OF STUDY</label><br />
+                  <input
+                    type="text"
+                    name="fieldOfStudy"
+                    id="fieldOfStudy"
+                    class="fields"
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="gpa">GPA (OPTIONAL)</label><br />
+                  <input
+                    type="text"
+                    name="gpa"
+                    id="gpa"
+                    class="fields"
+                    placeholder="e.g., 3.8/4.0"
+                  />
+                </div>
+                <div class="row120">
+                  <div class="row121">
+                    <label for="graduationMonth">GRADUATION MONTH</label><br />
+                    <select
+                      id="graduationMonth"
+                      name="graduationMonth"
+                      class="country"
+                    >
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="December">December</option>
+                    </select>
+                  </div>
+                  <div class="row122">
+                    <label for="graduationYear">GRADUATION YEAR</label><br />
+                    <select
+                      id="graduationYear"
+                      name="graduationYear"
+                      class="city"
+                    >
+                      <option value="2032">2032</option>
+                      <option value="2031">2031</option>
+                      <option value="2030">2030</option>
+                      <option value="2029">2029</option>
+                      <option value="2028">2028</option>
+                      <option value="2027">2027</option>
+                      <option value="2026">2026</option>
+                      <option value="2025">2025</option>
+                      <option value="2024">2024</option>
+                      <option value="2023">2023</option>
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="educationDescription"
+                    >RELEVANT COURSEWORK/ACHIEVEMENTS</label
+                  ><br />
+                  <textarea
+                    name="educationDescription"
+                    id="educationDescription"
+                    class="fields"
+                    rows="3"
+                    placeholder="List relevant courses, honors, or academic achievements"
+                  ></textarea>
+                </div>
+                <!-- <div class="row12">
+                  <label for="addEducation" style="margin-top: 20px"></label>
+                  <button
+                    type="button"
+                    id="addEducation"
+                    class="btn-cover"
+                    style="width: 100%; margin-top: 10px"
+                  >
+                    + Add Another Education
+                  </button>
+                </div> -->
+              </div>
+
+              <!-- Experience Section -->
+              <div class="crb-title">
+                <h1>Tell us about your work experience</h1>
+                <p>* indicates a required field</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="jobTitle">JOB TITLE*</label><br />
+                  <input
+                    type="text"
+                    name="jobTitle"
+                    id="jobTitle"
+                    class="fields"
+                    required
+                  />
+                </div>
+                <div class="row12">
+                  <label for="employer">EMPLOYER/COMPANY*</label><br />
+                  <input
+                    type="text"
+                    name="employer"
+                    id="employer"
+                    class="fields"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="jobLocation">LOCATION</label><br />
+                  <input
+                    type="text"
+                    name="jobLocation"
+                    id="jobLocation"
+                    class="fields"
+                    placeholder="City, Country"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="employmentType">EMPLOYMENT TYPE</label><br />
+                  <select
+                    id="employmentType"
+                    name="employmentType"
+                    class="fields"
+                  >
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Freelance">Freelance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="startDate">START DATE</label><br />
+                  <input
+                    type="date"
+                    name="startDate"
+                    id="startDate"
+                    class="fields"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="endDate">END DATE</label><br />
+                  <input
+                    type="date"
+                    name="endDate"
+                    id="endDate"
+                    class="fields"
+                  />
+                  <div style="margin-top: 10px">
+                    <input
+                      type="checkbox"
+                      id="currentJob"
+                      style="width: auto; margin-right: 5px"
+                    />
+                    <label for="currentJob" style="display: inline"
+                      >I currently work here</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="jobDescription"
+                    >JOB DESCRIPTION & ACHIEVEMENTS*</label
+                  ><br />
+                  <textarea
+                    name="jobDescription"
+                    id="jobDescription"
+                    class="fields"
+                    rows="5"
+                    placeholder="Describe your responsibilities, achievements, and key contributions. Use bullet points for clarity."
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- <div class="row1">
+                <div class="row12">
+                  <button
+                    type="button"
+                    id="addExperience"
+                    class="btn-cover"
+                    style="width: 100%"
+                  >
+                    + Add Another Experience
+                  </button>
+                </div>
+              </div> -->
+
+              <!-- Skills Section -->
+              <div class="crb-title">
+                <h1>Tell us about your skills</h1>
+                <p>Add skills relevant to the position you're applying for</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="skill1">SKILL 1</label><br />
+                  <input
+                    type="text"
+                    name="skill1"
+                    id="skill1"
+                    class="fields"
+                    placeholder="Programming"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="skill2">SKILL 2</label><br />
+                  <input
+                    type="text"
+                    name="skill2"
+                    id="skill2"
+                    class="fields"
+                    placeholder="Problem solving"
+                  />
+                </div>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="skill3">SKILL 3</label><br />
+                  <input
+                    type="text"
+                    name="skill3"
+                    id="skill3"
+                    class="fields"
+                    placeholder="Team management"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="skill4">SKILL 4</label><br />
+                  <input
+                    type="text"
+                    name="skill4"
+                    id="skill4"
+                    class="fields"
+                    placeholder="Communication"
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="skill5">SKILL 5</label><br />
+                  <input
+                    type="text"
+                    name="skill5"
+                    id="skill5"
+                    class="fields"
+                    placeholder="Project management"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="skill6">SKILL 6</label><br />
+                  <input
+                    type="text"
+                    name="skill6"
+                    id="skill6"
+                    class="fields"
+                    placeholder="Data analysis"
+                  />
+                </div>
+              </div>
+
+              <div class="row1">
+                <div class="row11">
+                  <label for="skillDescription">TECHNICAL PROFICIENCY</label
+                  ><br />
+                  <textarea
+                    name="skillDescription"
+                    id="skillDescription"
+                    class="fields"
+                    rows="3"
+                    placeholder="Optional: Describe your technical proficiency levels or any additional skills"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Languages Section -->
+              <div class="crb-title">
+                <h1>Languages Known</h1>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <div class="languages-container">
+                    <label class="lang">Select Languages You Know:</label><br />
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageEnglish"
+                        name="languages[]"
+                        value="English"
+                      />
+                      English
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageHindi"
+                        name="languages[]"
+                        value="Hindi"
+                      />
+                      Hindi
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageKannada"
+                        name="languages[]"
+                        value="Kannada"
+                      />
+                      Kannada
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageFrench"
+                        name="languages[]"
+                        value="French"
+                      />
+                      French
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageTelugu"
+                        name="languages[]"
+                        value="Telugu"
+                      />
+                      Telugu
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageSpanish"
+                        name="languages[]"
+                        value="Spanish"
+                      />
+                      Spanish
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageGerman"
+                        name="languages[]"
+                        value="German"
+                      />
+                      German
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="languageChinese"
+                        name="languages[]"
+                        value="Chinese"
+                      />
+                      Chinese
+                    </label>
+
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="otherLangCheckbox"
+                        name="hasOtherLanguage"
+                        value="1"
+                      />
+                      Other
+                    </label>
+                    <input
+                      type="text"
+                      id="otherLanguage"
+                      name="otherLanguage"
+                      placeholder="Enter other language"
+                      style="display: none; width: 150px; margin-left: 5px"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Achievements Section -->
+              <div class="crb-title">
+                <h1>Achievements</h1>
+                <p>Highlight notable achievements or recognitions</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="achievements">ACHIEVEMENTS & AWARDS</label><br />
+                  <textarea
+                    name="achievements"
+                    id="achievements"
+                    class="fields"
+                    rows="4"
+                    placeholder="List significant achievements, awards, or recognitions"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Certifications Section -->
+              <div class="crb-title">
+                <h1>Certifications</h1>
+                <p>
+                  Add relevant certifications or professional qualifications
+                </p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="certification">CERTIFICATION NAME</label><br />
+                  <input
+                    type="text"
+                    name="certification"
+                    id="certification"
+                    class="fields"
+                    placeholder="AWS Certified Solutions Architect"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="certificationIssuer">ISSUING ORGANIZATION</label
+                  ><br />
+                  <input
+                    type="text"
+                    name="certificationIssuer"
+                    id="certificationIssuer"
+                    class="fields"
+                    placeholder="Amazon Web Services"
+                  />
+                </div>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="certificationDate">DATE ISSUED</label><br />
+                  <input
+                    type="date"
+                    name="certificationDate"
+                    id="certificationDate"
+                    class="fields"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="certificationExpiry">EXPIRY DATE (OPTIONAL)</label
+                  ><br />
+                  <input
+                    type="date"
+                    name="certificationExpiry"
+                    id="certificationExpiry"
+                    class="fields"
+                  />
+                </div>
+              </div>
+              <!-- <div class="row1">
+                <div class="row12">
+                  <button
+                    type="button"
+                    id="addCertification"
+                    class="btn-cover"
+                    style="width: 100%"
+                  >
+                    + Add Another Certification
+                  </button>
+                </div>
+              </div> -->
+
+              <!-- Projects Section -->
+              <div class="crb-title">
+                <h1>Projects</h1>
+                <p>Add relevant projects you've worked on</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="projectTitle">PROJECT TITLE</label><br />
+                  <input
+                    type="text"
+                    name="projectTitle"
+                    id="projectTitle"
+                    class="fields"
+                    placeholder="E-commerce Website"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="projectRole">YOUR ROLE</label><br />
+                  <input
+                    type="text"
+                    name="projectRole"
+                    id="projectRole"
+                    class="fields"
+                    placeholder="Lead Developer"
+                  />
+                </div>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="projectDate">DATE COMPLETED</label><br />
+                  <input
+                    type="date"
+                    name="projectDate"
+                    id="projectDate"
+                    class="fields"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="projectUrl">PROJECT URL (OPTIONAL)</label><br />
+                  <input
+                    type="text"
+                    name="projectUrl"
+                    id="projectUrl"
+                    class="fields"
+                    placeholder="https://github.com/username/project"
+                  />
+                </div>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="projectDescription">PROJECT DESCRIPTION</label
+                  ><br />
+                  <textarea
+                    name="projectDescription"
+                    id="projectDescription"
+                    class="fields"
+                    rows="4"
+                    placeholder="Describe the project, technologies used, and your contributions"
+                  ></textarea>
+                </div>
+                <!-- <div class="row12">
+                  <button
+                    type="button"
+                    id="addProject"
+                    class="btn-cover"
+                    style="width: 100%; margin-top: 30px"
+                  >
+                    + Add Another Project
+                  </button>
+                </div> -->
+              </div>
+
+              <!-- Volunteer Work Section -->
+              <div class="crb-title">
+                <h1>Volunteer Work</h1>
+                <p>
+                  Add volunteer experience that demonstrates your skills and
+                  values
+                </p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="volunteerWork">ORGANIZATION & ROLE</label><br />
+                  <input
+                    type="text"
+                    name="volunteerWork"
+                    id="volunteerWork"
+                    class="fields"
+                    placeholder="Red Cross - Disaster Relief Volunteer"
+                  />
+                </div>
+                <div class="row12">
+                  <label for="volunteerDuration">DURATION</label><br />
+                  <input
+                    type="text"
+                    name="volunteerDuration"
+                    id="volunteerDuration"
+                    class="fields"
+                    placeholder="Jan 2020 - Present"
+                  />
+                </div>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="volunteerDescription">DESCRIPTION</label><br />
+                  <textarea
+                    name="volunteerDescription"
+                    id="volunteerDescription"
+                    class="fields"
+                    rows="4"
+                    placeholder="Describe your volunteer activities and impact"
+                  ></textarea>
+                </div>
+                <!-- <div class="row12">
+                  <button
+                    type="button"
+                    id="addVolunteer"
+                    class="btn-cover"
+                    style="width: 100%; margin-top: 30px"
+                  >
+                    + Add Another Volunteer Experience
+                  </button>
+                </div> -->
+              </div>
+
+              <!-- References Section -->
+              <div class="crb-title">
+                <h1>References</h1>
+                <p>Optional: Add professional references</p>
+              </div>
+              <div class="row1">
+                <div class="row11">
+                  <label for="references">REFERENCES</label><br />
+                  <textarea
+                    name="references"
+                    id="references"
+                    class="fields"
+                    rows="4"
+                    placeholder="Add references or write 'References available upon request'"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="final">
+                <div class="btn-cover">
+                  <button type="button" id="previewResume">
+                    Preview Resume
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="crb-preview">
+          <img src="./res1.jpeg" alt="Resume Preview" />
+          <div class="preview-btn">
+            <button type="button" id="openPreview">View Resume</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Preview Modal -->
+    <div id="previewModal" class="preview-container">
+      <div class="preview-content">
+        <span class="close-preview">&times;</span>
+        <div id="resumeTemplate" class="resume-container" style="padding: 10px">
+          <!-- Resume content will be dynamically generated here -->
+          <div class="header">
+            <h1 class="name">Srikanth</h1>
+            <p class="title">Software Engineer</p>
+            <div class="contact-info">
+              <span class="contact-item">example@gmail.com</span>
+              <span class="contact-item">9916464950</span>
+              <span class="contact-item">India, Bangalore</span>
+              <span class="contact-item">linkedin.com</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="item-description">
+              Software engineer with 5 years of experience in web development
+              and cloud infrastructure. Passionate about creating scalable and
+              efficient solutions using modern technologies.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">Senior Developer</h3>
+                  <p class="item-subtitle">Tech Solutions Inc.</p>
+                </div>
+                <p class="date">Jan 2020 - Present</p>
+              </div>
+              <p class="item-description">
+                • Led development of a customer-facing web application<br />
+                • Implemented CI/CD pipeline reducing deployment time by 40%<br />
+                • Mentored junior developers and conducted code reviews
+              </p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">
+                    Bachelor of Science in Computer Science
+                  </h3>
+                  <p class="item-subtitle">University of Technology</p>
+                </div>
+                <p class="date">Graduated: May 2018</p>
+              </div>
+              <p class="item-description">
+                GPA: 3.8/4.0, Dean's List, Computer Science Student Association
+              </p>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills-list">
+              <li class="skill-item">JavaScript</li>
+              <li class="skill-item">React</li>
+              <li class="skill-item">Node.js</li>
+              <li class="skill-item">AWS</li>
+              <li class="skill-item">Docker</li>
+              <li class="skill-item">Git</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certification-item">
+              <div class="item-header">
+                <div>
+                  <h3 class="item-title">AWS Certified Solutions Architect</h3>
+                  <p class="item-subtitle">Amazon Web Services</p>
+                </div>
+                <p class="date">Issued: Dec 2021</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-controls">
+          <button id="downloadPdf" class="btn">Download PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
